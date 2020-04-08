@@ -43,12 +43,14 @@ class App extends Component {
         });
     }
 
+    // Add Todo
+
     render() {
         return (
             <div className="App">
                 <div className="container">
                     <Header />
-                    <AddTodo />
+                    <AddTodo addTodo={this.addTodo}/>
                     <Todos todos={this.state.todos} toggleComplete={this.toggleComplete}
                         deleteTodo={this.deleteTodo} />
                 </div>
