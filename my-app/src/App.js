@@ -44,6 +44,15 @@ class App extends Component {
     }
 
     // Add Todo
+    addTodo = (title) => {
+        const newTodo = {
+            id: 4,
+            title,
+            completed: false
+        }
+
+        this.setState ({ todos: [...this.state.todos, newTodo] })
+    }
 
     render() {
         return (
