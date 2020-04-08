@@ -13,7 +13,7 @@ class App extends Component {
             },{
                 id: 2,
                 title: 'Give old lady a suck job',
-                completed: false
+                completed: true
             },{
                 id: 3,
                 title: 'Try PCP for first time',
@@ -21,11 +21,27 @@ class App extends Component {
             },
         ]
     }
+    // Toggle complete off and on
+    toggleComplete = (id) => {
+        this.setState( {todos: this.state.todos.map(todo => {
+            if(todo.id === id) {
+                todo.completed = !todo.completed
+            }
+            return todo;
+        })} );
+    }
 
+    // Delete Todo
+    deleteTodo = (id) => {
+        this.setState({ todos:[...this.state.todos.filter(todo => todo.id
+            !== id)] });
+    }
+    
     render() {
         return (
             <div className="App">
-                <Todos />
+                <Todos todos={this.state.todos} toggleComplete={this.toggleComplete}
+                deleteTodo={this.deleteTodo} />
             </div>
         );
     }
